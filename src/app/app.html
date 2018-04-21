@@ -1,0 +1,20 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>Ionic App Template</ion-title>
+        </ion-toolbar>
+    </ion-header>
+  
+    <ion-content>
+        <ion-list class="navigation">
+            <ion-item-group *ngFor="let section of navigation.sections">
+                <ion-item-divider color="light" [innerHtml]="section.name"></ion-item-divider>
+                <ion-item menuClose *ngFor="let page of section.pages" (click)="page.action()">
+                    <ion-icon [name]="page.icon"></ion-icon> <span [innerHtml]="page.name"></span>
+                </ion-item>
+            </ion-item-group>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>
